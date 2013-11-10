@@ -1,6 +1,8 @@
 package com.fivehugs;
 
 import com.parse.ParseFacebookUtils;
+import com.parse.ParseObject;
+import com.parse.ParseQueryAdapter;
 import com.parse.ParseUser;
 
 import android.os.Bundle;
@@ -8,6 +10,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
+import com.facebook.model.GraphUser;
 
 public class FrontActivity extends Activity {
 
@@ -16,6 +20,14 @@ public class FrontActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		
 		setContentView(R.layout.activity_front);
+		
+		 ParseQueryAdapter<ParseObject> adapter = new ParseQueryAdapter<ParseObject>(this, "post");
+		 adapter.setTextKey("message");
+		 
+		 ListView listView = (ListView) findViewById(R.id.ListView1);
+		 listView.setAdapter(adapter);
+		 
+		
 	}
 
 	@Override
