@@ -237,8 +237,8 @@ containing a value of this type.
     }
     public static final class id {
         public static final int RelativeLayout1=0x7f050004;
-        public static final int action_post=0x7f050024;
-        public static final int action_settings=0x7f050023;
+        public static final int action_post=0x7f050025;
+        public static final int action_settings=0x7f050024;
         public static final int button1=0x7f050006;
         public static final int com_facebook_login_activity_progress_bar=0x7f050009;
         public static final int com_facebook_picker_activity_circle=0x7f050008;
@@ -260,14 +260,15 @@ containing a value of this type.
         public static final int com_facebook_usersettingsfragment_login_button=0x7f05001b;
         public static final int com_facebook_usersettingsfragment_logo_image=0x7f050019;
         public static final int com_facebook_usersettingsfragment_profile_name=0x7f05001a;
-        public static final int compose=0x7f050026;
+        public static final int compose=0x7f050027;
+        public static final int etp=0x7f050023;
         public static final int five=0x7f050022;
         public static final int hug=0x7f050021;
         public static final int large=0x7f050002;
         public static final int linearLayout1=0x7f050020;
         public static final int listView1=0x7f050005;
         public static final int list_image=0x7f05001e;
-        public static final int logout=0x7f050025;
+        public static final int logout=0x7f050026;
         public static final int message=0x7f050003;
         public static final int normal=0x7f050001;
         public static final int objId=0x7f05001c;

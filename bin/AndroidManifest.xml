@@ -42,9 +42,7 @@
             android:name="com.fivehugs.SettingsActivity"
             android:label="@string/title_activity_settings" >
         </activity>
-        <activity
-            android:name="com.fivehugs.FragmentPreferences"
-            android:label="@string/title_activity_fragment"></activity>
+       
     </application>
 
 </manifest>

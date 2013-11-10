@@ -2,6 +2,7 @@ package com.fivehugs;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
@@ -51,8 +52,9 @@ public class PostAdapter extends ParseQueryAdapter<ParseObject> {
             		ParseGeoPoint point = getGPS();
             		
             		
+            		
                     ParseQuery<ParseObject> query = ParseQuery.getQuery("post");
-                    query.whereWithinMiles("location", point, FrontActivity.d);
+                    query.whereWithinMiles("location", point, 10);
                     query.setLimit(50);
                     try {
 						query.find();

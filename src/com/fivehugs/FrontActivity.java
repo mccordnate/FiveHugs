@@ -78,10 +78,6 @@ public class FrontActivity extends Activity {
 		case R.id.compose:
 			compose();
 			return true;
-		case R.id.action_settings:
-			Intent i = new Intent(this, FragmentPreferences.class);
-			startActivity(i);
-			return true;
 		default:
 			return super.onOptionsItemSelected(item);
 		}

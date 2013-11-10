@@ -9,9 +9,11 @@
             android:title="@string/pref_title_nearest"
             android:defaultValue="true" />
         <EditTextPreference
+            android:id="@+id/etp"
             android:key="pref_dis"
             android:summary="@string/pref_summary_set_miles"
             android:title="@string/pref_title_set_miles"
+            android:inputType="number"
             android:enabled="false"/>
         </PreferenceCategory>
 </PreferenceScreen>
