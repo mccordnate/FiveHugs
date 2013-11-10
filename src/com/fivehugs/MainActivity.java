@@ -22,10 +22,20 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		
 		Parse.initialize(this, "IMS4ulBv5P6ANtujuGvmAaeIPBugWYO3W7Hg4Lv9", "1ENx3d2wsqaShL1WtJpYmoCmfmcAQwSFGgUD3o08");
 		ParseFacebookUtils.initialize("175236929349279");
 		ParseAnalytics.trackAppOpened(getIntent());
+		ParseUser currentUser = ParseUser.getCurrentUser();
+	    if ((currentUser != null) && ParseFacebookUtils.isLinked(currentUser)) {
+	        // Go to the user info activity
+	      startActivity(new Intent(this, FrontActivity.class));
+	      finish();
+	    }
+	    else{
+	    setContentView(R.layout.activity_main);
+	    }
+	    
 	}
 
 	@Override
@@ -51,9 +61,11 @@ public class MainActivity extends Activity {
 			      Log.d("MyApp", "Uh oh. The user cancelled the Facebook login.");
 			    } else if (user.isNew()) {
 			      Log.d("MyApp", "User signed up and logged in through Facebook!");
+			      startActivity(new Intent(MainActivity.this, FrontActivity.class));
 			      finish();
 			    } else {
 			      Log.d("MyApp", "User logged in through Facebook!");
+			      startActivity(new Intent(MainActivity.this, FrontActivity.class));
 			      finish();	
 			    }
 			  }

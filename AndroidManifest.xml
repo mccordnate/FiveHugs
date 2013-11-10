@@ -31,6 +31,10 @@
             android:name="com.fivehugs.FrontActivity"
             android:label="@string/title_activity_front" >
         </activity>
+        <activity
+            android:name="com.fivehugs.ComposeActivity"
+            android:label="@string/title_activity_compose" >
+        </activity>
     </application>
 
 </manifest>
