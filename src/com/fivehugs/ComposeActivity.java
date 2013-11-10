@@ -53,7 +53,7 @@ public class ComposeActivity extends Activity {
 					}
 				});
 		request.executeAsync();
-		String userFirstName = ((TextView)findViewById(R.id.hiddenName)).toString();
+		String userFirstName = (findViewById(R.id.hiddenName)).toString();
 		
 		EditText et = (EditText) findViewById(R.id.message);
 		String message = et.getText().toString();

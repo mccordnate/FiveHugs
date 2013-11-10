@@ -26,10 +26,12 @@ public class FrontActivity extends Activity {
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.activity_front);
-
-		ParseQueryAdapter<ParseObject> adapter = new ParseQueryAdapter<ParseObject>(
+		
+		PostAdapter adapter = new PostAdapter(this);
+		adapter.loadObjects();
+		/*ParseQueryAdapter<ParseObject> adapter = new ParseQueryAdapter<ParseObject>(
 				this, "post");
-		adapter.setTextKey("message");
+		adapter.setTextKey("message");*/
 
 		ListView listView = (ListView) findViewById(R.id.listView1);
 		listView.setAdapter(adapter);
