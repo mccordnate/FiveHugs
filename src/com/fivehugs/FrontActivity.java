@@ -11,6 +11,12 @@ import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.facebook.Request;
+import com.facebook.Response;
+import com.facebook.Session;
 import com.facebook.model.GraphUser;
 
 public class FrontActivity extends Activity {
@@ -18,16 +24,26 @@ public class FrontActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
+
 		setContentView(R.layout.activity_front);
-		
-		 ParseQueryAdapter<ParseObject> adapter = new ParseQueryAdapter<ParseObject>(this, "post");
-		 adapter.setTextKey("message");
-		 
-		 ListView listView = (ListView) findViewById(R.id.ListView1);
-		 listView.setAdapter(adapter);
-		 
-		
+
+		ParseQueryAdapter<ParseObject> adapter = new ParseQueryAdapter<ParseObject>(
+				this, "post");
+		adapter.setTextKey("message");
+
+		ListView listView = (ListView) findViewById(R.id.listView1);
+		listView.setAdapter(adapter);
+
+		Request request = Request.newMeRequest(Session.getActiveSession(),
+				new Request.GraphUserCallback() {
+
+					@Override
+					public void onCompleted(GraphUser user, Response response) {
+						TextView tv = (TextView) findViewById(R.id.textView1);
+						tv.setText(user.getFirstName());
+					}
+				});
+		request.executeAsync();
 	}
 
 	@Override
@@ -55,8 +71,8 @@ public class FrontActivity extends Activity {
 		startActivity(new Intent(this, MainActivity.class));
 		finish();
 	}
-	
-	private void compose(){
+
+	private void compose() {
 		startActivity(new Intent(this, ComposeActivity.class));
 	}
 
