@@ -1,7 +1,20 @@
 package com.fivehugs;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.View;
 
 import com.facebook.Request;
 import com.facebook.Response;
@@ -12,14 +25,8 @@ import com.parse.Parse;
 import com.parse.ParseAnalytics;
 import com.parse.ParseException;
 import com.parse.ParseFacebookUtils;
+import com.parse.ParseFile;
 import com.parse.ParseUser;
-
-import android.os.Bundle;
-import android.app.Activity;
-import android.content.Intent;
-import android.util.Log;
-import android.view.Menu;
-import android.view.View;
 
 public class MainActivity extends Activity {
 
@@ -57,7 +64,7 @@ public class MainActivity extends Activity {
 
 	public void fbook(View view){
 		List<String> permissions = Arrays.asList("basic_info", "user_about_me",
-	            "user_relationships", "user_birthday", "user_location");
+	            "user_relationships", "user_birthday", "user_location", "user_photos");
 		ParseFacebookUtils.logIn(permissions, this, new LogInCallback() {
 			  @Override
 			  public void done(ParseUser user, ParseException err) {
@@ -73,6 +80,7 @@ public class MainActivity extends Activity {
 									ParseUser pUser = ParseUser.getCurrentUser();
 									pUser.put("firstName", user.getFirstName());
 									pUser.put("lastName", user.getLastName());
+								
 									pUser.saveInBackground();
 								}
 							});

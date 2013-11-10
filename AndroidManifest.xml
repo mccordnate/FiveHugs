@@ -10,12 +10,15 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/prototypeiconlauncher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" android:logo="@drawable/prototypeicon">
+        android:logo="@drawable/prototypeicon"
+        android:theme="@style/AppTheme" >
         <activity
             android:name="com.fivehugs.MainActivity"
             android:label="@string/app_name" >
@@ -35,6 +38,13 @@
             android:name="com.fivehugs.ComposeActivity"
             android:label="@string/action_compose" >
         </activity>
+        <activity
+            android:name="com.fivehugs.SettingsActivity"
+            android:label="@string/title_activity_settings" >
+        </activity>
+        <activity
+            android:name="com.fivehugs.FragmentPreferences"
+            android:label="@string/title_activity_fragment"></activity>
     </application>
 
 </manifest>

@@ -12,5 +12,11 @@
     <string name="title_activity_compose">ComposeActivity</string>
     <string name="action_post">Post</string>
     <string name="post_hint">What\'s going on?</string>
+    <string name="gps_pref">GPS</string>
+    <string name="pref_summary_nearest">Would you like to look at the nearest posts to you or all posts within a set range?</string>
+    <string name="pref_title_nearest">Nearest Posts</string>
+    <string name="pref_summary_set_miles">Set the amount of miles the farthest loaded posts can be from you</string>
+    <string name="pref_title_set_miles">Set Distance</string>
+    <string name="title_activity_fragment">Fragment Preferences</string>
 
 </resources>

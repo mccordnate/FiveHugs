@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    <PreferenceCategory
+        android:title="@string/gps_pref"
+        android:background="#000000">
+        <CheckBoxPreference
+            android:key="pref_near"
+            android:summary="@string/pref_summary_nearest"
+            android:title="@string/pref_title_nearest"
+            android:defaultValue="true" />
+        <EditTextPreference
+            android:key="pref_dis"
+            android:summary="@string/pref_summary_set_miles"
+            android:title="@string/pref_title_set_miles"
+            android:enabled="false"/>
+        </PreferenceCategory>
+</PreferenceScreen>
