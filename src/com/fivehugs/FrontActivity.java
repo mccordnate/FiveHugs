@@ -1,6 +1,7 @@
 package com.fivehugs;
 
 
+import com.parse.ParseObject;
 import com.parse.ParseUser;
 
 import android.os.Bundle;
@@ -8,6 +9,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ListView;
 
 
@@ -61,4 +65,25 @@ public class FrontActivity extends Activity {
 		startActivity(new Intent(this, ComposeActivity.class));
 	}
 
+	public void toggleHug(View view){
+		CheckBox hug = (CheckBox)view.findViewById(R.id.hug);
+		if(hug.isChecked()){
+			hug.setButtonDrawable(getResources().getDrawable(R.drawable.sshug));
+			
+		}
+		else{
+			hug.setButtonDrawable(getResources().getDrawable(R.drawable.ssbhug));
+		}
+	}
+	
+	public void toggleFive(View view){
+		CheckBox five = (CheckBox)view.findViewById(R.id.five);
+		if(five.isChecked()){
+			five.setButtonDrawable(getResources().getDrawable(R.drawable.ssfive));
+			//(TextView)view.findViewById(objId);
+		}
+		else{
+			five.setButtonDrawable(getResources().getDrawable(R.drawable.ssbfive));
+		}
+	}
 }

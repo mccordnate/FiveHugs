@@ -7,6 +7,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.LayoutInflater;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,6 +16,7 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
 import com.parse.ParseException;
+import com.parse.ParseUser;
 
 public class PostAdapter extends ParseQueryAdapter<ParseObject> {
 	
@@ -39,10 +41,15 @@ public class PostAdapter extends ParseQueryAdapter<ParseObject> {
 		
 		TextView title = (TextView)vi.findViewById(R.id.title);
 		TextView message = (TextView)vi.findViewById(R.id.message);
+		TextView objId = (TextView)vi.findViewById(R.id.objId);
 		
 		
-		title.setText("Name here");
+		ParseUser user = ParseUser.getCurrentUser();
+		
+		title.setText((String)user.get("firstName"));
 		message.setText(object.getString("message"));
+		objId.setText(object.getString("objectId"));
+
 		
 		
 		return vi;
