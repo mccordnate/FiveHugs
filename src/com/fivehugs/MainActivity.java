@@ -3,6 +3,10 @@ package com.fivehugs;
 import java.util.Arrays;
 import java.util.List;
 
+import com.facebook.Request;
+import com.facebook.Response;
+import com.facebook.Session;
+import com.facebook.model.GraphUser;
 import com.parse.LogInCallback;
 import com.parse.Parse;
 import com.parse.ParseAnalytics;
@@ -61,6 +65,18 @@ public class MainActivity extends Activity {
 			      Log.d("MyApp", "Uh oh. The user cancelled the Facebook login.");
 			    } else if (user.isNew()) {
 			      Log.d("MyApp", "User signed up and logged in through Facebook!");
+			      Request request = Request.newMeRequest(Session.getActiveSession(),
+							new Request.GraphUserCallback() {
+
+								@Override
+								public void onCompleted(GraphUser user, Response response) {
+									ParseUser pUser = ParseUser.getCurrentUser();
+									pUser.put("firstName", user.getFirstName());
+									pUser.put("lastName", user.getLastName());
+									pUser.saveInBackground();
+								}
+							});
+					request.executeAsync();
 			      startActivity(new Intent(MainActivity.this, FrontActivity.class));
 			      finish();
 			    } else {

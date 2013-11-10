@@ -40,8 +40,10 @@ public class PostAdapter extends ParseQueryAdapter<ParseObject> {
 		TextView title = (TextView)vi.findViewById(R.id.title);
 		TextView message = (TextView)vi.findViewById(R.id.message);
 		
-		title.setText(object.getString("first_name"));
+		
+		title.setText("Name here");
 		message.setText(object.getString("message"));
+		
 		
 		return vi;
 	}
